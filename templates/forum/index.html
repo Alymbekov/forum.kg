@@ -26,13 +26,17 @@
                     <li class="active"><a href="javascript:;"><span class="glyphicon glyphicon-star"></span> News</a></li>
                     <li><a href="javascript:;">Latest news</a></li>
                     <li><a href="javascript:;">Updates</a></li>
-                    <li><a href="javascript:;">Training</a></li>
-                    <li><a href="javascript:;">Nutrition</a></li>
-                    <li><a href="javascript:;">Proteins</a></li>
-                    <li><a href="javascript:;">Recipes</a></li>
-                    <li><a href="javascript:;">Challenge</a></li>
                     <li class="nav-divider"></li>
-                    <li><a href="javascript:;"><i class="glyphicon glyphicon-off"></i> Sign in</a></li>
+                   
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}"><i class="glyphicon glyphicon-off"></i> Sign in</a></li>
+                    <li><a href="{% url 'password_reset' %}"><i class="glyphicon glyphicon-off"></i> Lose Password?</a></li>
+                    <li><a href="{% url 'users:register' %}"><i class="glyphicon glyphicon-off"></i> Sign Up</a></li>
+                    {% endif %}
+
+
                 </ul>
             </nav>
                       <div><h2 class="add">Place for your add!</h2></div>

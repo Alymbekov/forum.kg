@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('apps.forumkg.urls')),
     path('category/', include('apps.category.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('users/', include('apps.users.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
