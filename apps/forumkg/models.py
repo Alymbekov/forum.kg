@@ -6,7 +6,7 @@ from PIL import Image
 from io import BytesIO
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+from apps.users.models import User
 from apps.category.models import Category
 from django.core.files.uploadedfile import InMemoryUploadedFile
 

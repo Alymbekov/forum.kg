@@ -27,7 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.forumkg',
     'apps.category',
+    'apps.users',
 ]
+
+AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
