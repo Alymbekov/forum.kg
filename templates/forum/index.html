@@ -1,10 +1,60 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
 <body>
 
-<h1>Hello world</h1>
 
 
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	 <div id="blog" class="row">
+
+                  <div class="col-sm-2 paddingTop20">
+            <nav class="nav-sidebar">
+                <ul class="nav">
+                    <li class="active"><a href="javascript:;"><span class="glyphicon glyphicon-star"></span> News</a></li>
+                    <li><a href="javascript:;">Latest news</a></li>
+                    <li><a href="javascript:;">Updates</a></li>
+                    <li><a href="javascript:;">Training</a></li>
+                    <li><a href="javascript:;">Nutrition</a></li>
+                    <li><a href="javascript:;">Proteins</a></li>
+                    <li><a href="javascript:;">Recipes</a></li>
+                    <li><a href="javascript:;">Challenge</a></li>
+                    <li class="nav-divider"></li>
+                    <li><a href="javascript:;"><i class="glyphicon glyphicon-off"></i> Sign in</a></li>
+                </ul>
+            </nav>
+                      <div><h2 class="add">Place for your add!</h2></div>
+        </div>
+         {% for post in object_list %}
+                 <div class="col-md-10 blogShort">
+                     <h1>{{ post.title }}</h1>
+                     <img style="height: 200px" src="{{post.images.first.get_absolute_image_url}}" alt="post img" class="pull-left img-responsive thumb margin20 img-thumbnail">
+
+                         <em>This snippet use <a href="http://bootsnipp.com/snippets/featured/sexy-sidebar-navigation" target="_blank"> Sidebar Navigation</a></em>
+                     <article><p>
+                            {{ post.description }}
+                         </p></article>
+                     <a class="btn btn-blog pull-right marginBottom10" href="{% url 'post_detail' slug=post.slug %}">READ MORE</a>
+                 </div>
+         {% endfor %}
+     </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

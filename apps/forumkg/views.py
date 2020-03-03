@@ -1,6 +1,16 @@
-from django.shortcuts import render
-from django.views.generic import View
+from apps.forumkg.models import Post
+from django.views.generic import ListView, DetailView
 
-def index(request):
-    return render(request, 'forum/index.html',  {})
+#function based view
+# def index(request):
+#     return render(request, 'forum/index.html',  {})
 
+
+class IndexPageView(ListView):
+    template_name = 'forum/index.html'
+    model = Post
+
+
+class PostDetailView(DetailView):
+    template_name = 'forum/post_detail.html'
+    model = Post
